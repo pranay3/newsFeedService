@@ -2,8 +2,11 @@ package heleprs;
 
 import com.datastax.driver.core.Cluster;
 import com.datastax.driver.core.Session;
+import org.apache.log4j.Logger;
 
 public class CassandraConnector {
+
+    private static final Logger LOGGER = Logger.getLogger(CassandraConnector.class);
 
     private static Cluster cluster;
 
@@ -17,6 +20,7 @@ public class CassandraConnector {
         cluster = builder.build();
 
         session = cluster.connect();
+        LOGGER.info("Cassandra Session Acquired");
     }
 
     public static Session getSession() {
