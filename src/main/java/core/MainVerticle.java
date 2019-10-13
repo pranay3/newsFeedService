@@ -32,7 +32,7 @@ public class MainVerticle extends AbstractVerticle {
                 promise.complete();
             } else {
                 LOGGER.info("Deployment failed");
-                promise.fail(ar.cause());
+                promise.fail(ar.cause() );
             }
         });
     }
